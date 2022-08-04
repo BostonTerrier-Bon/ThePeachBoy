@@ -1,11 +1,10 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'domain/peach.dart';
-import 'infra/peach_repository_impl.dart';
-import 'infra/boy_repository_impl.dart';
+import 'package:the_peach_boy/logic/infra/peachboy_repository_impl.dart';
+import 'package:the_peach_boy/logic/domain/peach.dart';
 
 // UseCase
 abstract class RiverUseCase {
-  Future<AsyncValue<Peach>> getPeach();
+  Future<AsyncValue<Peach>> fetchPeach();
 }
 
 final riverUseCaseProvider = Provider<RiverUseCase>((ref) {
@@ -18,13 +17,11 @@ class RiverUseCaseImpl implements RiverUseCase {
   RiverUseCaseImpl(this._reader);
 
   @override
-  Future<AsyncValue<Peach>> getPeach() async {
-    // 桃を取得
-    final peach = await _reader(peachRepositoryProvider).fetchFromEden();
-    // 太郎取得
-    final character = await _reader(boyRepositoryProvider).fetchFromUniverse();
-    // Inject
-    peach.setContent(character);
+  Future<AsyncValue<Peach>> fetchPeach() async {
+    // 桃を取得（桃太郎入り）
+    final peach =
+        await _reader(peachBoyRepositoryProvider).fetchPeachFromEden();
+    // 桃太郎が入ってるかチェック？
 
     return AsyncValue.data(peach);
   }

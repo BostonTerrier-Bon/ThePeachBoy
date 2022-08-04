@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
-import './river_viewmodel.dart';
+import 'package:the_peach_boy/presenter/river_viewmodel.dart';
 
 class RiverPage extends HookConsumerWidget {
   const RiverPage({Key? key}) : super(key: key);
@@ -16,13 +16,21 @@ class RiverPage extends HookConsumerWidget {
         theme: ThemeData(primarySwatch: Colors.green),
         home: Scaffold(
             appBar: AppBar(
-              title:
-                  const Text('When you are washing some stuffs at the river'),
+              title: const Text('At the river'),
             ),
             body: Center(
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
+                  // const Center(
+                  //   child: Text(
+                  //     'When you are washing some stuffs at the river...',
+                  //     style: TextStyle(
+                  //       fontSize: 20.0,
+                  //       fontWeight: FontWeight.bold,
+                  //     ),
+                  //   ),
+                  // ),
                   const Center(
                     child: Text(
                       '( ˘•灬•˘ )',

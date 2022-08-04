@@ -1,21 +1,20 @@
-import 'boy.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:the_peach_boy/logic/domain/boy.dart';
 
-// Freezed？
-// Peach
-class Peach {
-  final List<Boy> _contents = [];
+part 'peach.freezed.dart';
 
-  setContent(Boy target) {
-    _contents.clear();
-    _contents.add(target);
-  }
+@freezed
+class Peach with _$Peach {
+  factory Peach({
+    required List<Boy> contents,
+  }) = _Peach;
 
-  Boy? getContent() {
-    return (_contents.isNotEmpty) ? _contents.first : null;
-  }
+  // setContent(Boy target) {
+  //   content.clear();
+  //   content.add(target);
+  // }
 
-  @override
-  String toString() {
-    return '桃';
-  }
+  // Boy? getContent() {
+  //   return (_contents.isNotEmpty) ? _contents.first : null;
+  // }
 }

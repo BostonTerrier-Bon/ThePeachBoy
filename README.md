@@ -15,11 +15,10 @@ This title is 'The Peach Boy' in English.
 ## Usage
 
 ```shell
-git clone https://...
+git clone https://github.com/BostonTerrier-Bon/ThePeachBoy.git
 ```
 
 Do as best for setting of flutter dev env...
-
 
 ```shell
 flutter pub get

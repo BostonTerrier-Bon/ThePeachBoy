@@ -1,6 +1,8 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import '../logic/domain/peach.dart';
-import '../logic/river_usecase.dart';
+// import 'package:the_peach_boy/logic/domain/_peach.dart';
+// import '../logic/river_usecase.dart';
+import 'package:the_peach_boy/logic/river_usecase.dart';
+import 'package:the_peach_boy/logic/domain/peach.dart';
 
 // ViewModel
 final riverViewModelProvider =
@@ -13,22 +15,18 @@ class RiverViewModel extends StateNotifier<AsyncValue<Peach>> {
   RiverViewModel({required AutoDisposeStateNotifierProviderRef ref})
       : _ref = ref,
         super(const AsyncLoading()) {
-    initializeSomething();
+    // initializeSomething();
   }
 
   late final RiverUseCase riverUC = _ref.read(riverUseCaseProvider);
 
-  initializeSomething() {}
-
-  Future<void> getPeach() async {
-    // 桃取得を開始
-    final result = await riverUC.getPeach();
-    state = result;
-  }
+  // initializeSomething() {}
 
   // 川に到着、スタートアクション
   // 桃が流れてきたら通知
   Future<void> startScene() async {
-    await getPeach();
+    // 桃取得を開始
+    final result = await riverUC.fetchPeach();
+    state = result;
   }
 }
